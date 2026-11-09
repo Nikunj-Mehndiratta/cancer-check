@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chest X-ray Research Model</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="dot" aria-hidden="true"></span> Cancer Check</div>
+    <nav class="tabs"><a href="index.html">Symptom checklist</a><a href="xray.html" aria-current="page">Chest X-ray (research)</a></nav>
+    <span class="badge">Research model · not a diagnosis</span>
+  </header>
+
+  <main class="wide">
+    <h1>Chest X-ray research model</h1>
+    <p class="muted" style="max-width: 70ch">
+      Upload a frontal chest X-ray (PNG, JPEG or DICOM). An open-source research model scores it for 18 findings,
+      including the three linked to lung cancer: <strong>mass</strong>, <strong>nodule</strong> and <strong>lung lesion</strong>.
+      A heatmap shows which parts of the image drove each score.
+    </p>
+
+    <div class="warn" style="max-width: 80ch">
+      <strong>Read this first.</strong> This model is not approved for medical use and is not a radiologist.
+      It can miss cancers and flag things that aren't there. It has no "cancer" output: a mass or nodule can be a tumour,
+      but most are scars or old infections. It only understands <strong>frontal chest X-rays</strong>. It doesn't reject
+      other grey images, and will give meaningless scores for MRIs, CT slices, side-view X-rays or photos of a screen.
+      Always discuss real scans with your doctor.
+    </div>
+
+    <div id="xray"></div>
+
+    <p class="muted" style="margin-top:24px">
+      Have symptoms too? <a href="index.html">Start the symptom checklist</a>. Its results page has this same X-ray step,
+      so you get one combined report.
+    </p>
+  </main>
+
+  <footer class="foot wide">
+    Model: TorchXRayVision DenseNet-121 (<code>densenet121-res224-all</code>), trained on 8 public chest X-ray datasets.
+    <a href="https://github.com/mlmed/torchxrayvision" target="_blank" rel="noopener">Project page</a>.
+    Scores are rescaled so 0.5 is the model's flagging threshold; they are not probabilities of disease.
+  </footer>
+
+  <script src="xray.js"></script>
+  <script>XrayWidget.mount(document.getElementById("xray"));</script>
+</body>
+</html>

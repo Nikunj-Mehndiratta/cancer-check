@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this software in research, please cite it as below, and cite the works listed in NOTICE.md."
+title: "Cancer Check: a guideline-based cancer symptom checklist paired with an open-source chest X-ray model"
+type: software
+authors:
+  - family-names: Mehndiratta
+    given-names: Nikunj
+repository-code: "https://github.com/Nikunj-Mehndiratta/cancer-check"
+license: MIT
+version: 0.1.0
+date-released: 2026-11-09
+keywords:
+  - cancer
+  - symptom checker
+  - NICE NG12
+  - chest x-ray
+  - torchxrayvision
+  - research prototype
